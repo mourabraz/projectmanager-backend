@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/camelcase */
+import { resolve } from 'path';
+import * as fsExtra from 'fs-extra';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 
@@ -16,6 +18,9 @@ import { FiileRepository } from '../fiiles/fiile.repository';
 
 @Injectable()
 export class SeedsProdService {
+  uploadFolder = resolve(__dirname, '..', '..', 'tmp', 'upload');
+  imagesFolder = resolve(__dirname, '..', '..', 'images');
+
   constructor(
     @InjectRepository(UserRepository)
     private userRepository: UserRepository,
@@ -43,7 +48,9 @@ export class SeedsProdService {
   ) {}
 
   async init() {
+    this.resetFilesAndPhotosFromUploadFolder();
     await Promise.all([
+      await this.cleanDatabase(),
       await this.seedUsers(),
       await this.seedProjects(),
       await this.seedTasks(),
@@ -52,6 +59,34 @@ export class SeedsProdService {
       await this.seedInvitations(),
       await this.seedPhotos(),
       await this.seedUserProjects(),
+    ]);
+  }
+
+  @LoggerTimer({
+    name: SeedsProdService.name,
+    text: 'Reset Files And Photos From Upload Folder',
+    asyncFunc: true,
+  })
+  resetFilesAndPhotosFromUploadFolder() {
+    fsExtra.emptyDirSync(this.uploadFolder);
+    fsExtra.copySync(this.imagesFolder, this.uploadFolder);
+  }
+
+  @LoggerTimer({
+    name: SeedsProdService.name,
+    text: 'Clean database',
+    asyncFunc: true,
+  })
+  private async cleanDatabase() {
+    await Promise.all([
+      await this.fiilesRepository.query(`DELETE FROM fiiles;`),
+      await this.stepRepository.query(`DELETE FROM steps;`),
+      await this.taskRepository.query(`DELETE FROM tasks;`),
+      await this.invitationsRepository.query(`DELETE FROM invitations;`),
+      await this.userProjectRepository.query(`DELETE FROM users_projects;`),
+      await this.projectRepository.query(`DELETE FROM projects;`),
+      await this.photoRepository.query(`DELETE FROM photos;`),
+      await this.userRepository.query(`DELETE FROM users;`),
     ]);
   }
 
