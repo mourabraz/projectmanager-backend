@@ -10,7 +10,7 @@ const args = require('minimist')(process.argv.slice(2), {
   boolean: ['help'],
 });
 
-const uploadFolder = resolve(__dirname, '..', 'tmp', 'upload');
+const uploadFolder = resolve(__dirname, 'tmp', 'upload');
 const imagesFolder = resolve(__dirname, 'images');
 
 if (args.help) {
@@ -41,7 +41,7 @@ function resetFilesAndPhotosFromUploadFolder() {
 }
 
 function runComandToRevertDatabase() {
-  exec('cd .. && yarn typeorm:gm migration:revert', (err, stdout, stderr) => {
+  exec('yarn typeorm:gm migration:revert', (err, stdout, stderr) => {
     if (err) {
       // node couldn't execute the command
       console.error(err);
@@ -51,7 +51,7 @@ function runComandToRevertDatabase() {
     console.log(`stdout: ${stdout}`);
     console.log(`stderr: ${stderr}`);
 
-    exec('cd .. && yarn typeorm:gm migration:run', (err, stdout, stderr) => {
+    exec('yarn typeorm:gm migration:run', (err, stdout, stderr) => {
       if (err) {
         // node couldn't execute the command
         console.error(err);
@@ -61,7 +61,7 @@ function runComandToRevertDatabase() {
       console.log(`stdout: ${stdout}`);
       console.log(`stderr: ${stderr}`);
 
-      exec('cd .. && yarn seedprod', (err, stdout, stderr) => {
+      exec('yarn seedprod', (err, stdout, stderr) => {
         if (err) {
           // node couldn't execute the command
           console.error(err);
