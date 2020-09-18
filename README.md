@@ -116,6 +116,18 @@ ou
 yarn start:dev
 ```
 
+## Database
+
+```
+npm run typeorm:gm migration:run
+```
+
+ou
+
+```
+yarn typeorm:gm migration:run
+```
+
 ## Seeds
 
 ```
