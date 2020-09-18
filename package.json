@@ -23,6 +23,7 @@
     "typeorm:gm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config ormconfig.ts",
     "queue": "ts-node -r tsconfig-paths/register src/queue.ts",
     "seed": "ts-node -r tsconfig-paths/register src/seed/seed.module.ts",
+    "seedprod": "ts-node -r tsconfig-paths/register src/seed-prod/seed-prod.module.ts",
     "doc": "npx compodoc -p tsconfig.json -n \"Documentation\""
   },
   "dependencies": {
