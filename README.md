@@ -1,4 +1,12 @@
-# Backend in NestJS to Projects Manager App
+<h1 align="center">
+  <img alt="Gympoint" title="Gympoint" src=".github/logo_xxxx144.png" width="200px" />
+</h1>
+
+<h3 align="center">
+  Projects Manager
+</h3>
+
+# Backend in NestJS to Projects Manager App - [RealLive](https://pm.mourabraz.com)
 
 ## Description
 
@@ -16,7 +24,7 @@
 
 ## API
 
-## Routes
+## Routes (_nor updated_)
 
 | Method | Path                    | Public | Description                                                                                         | Tests              |
 | :----: | :---------------------- | :----: | --------------------------------------------------------------------------------------------------- | ------------------ |
@@ -63,6 +71,62 @@ All emails are added to a queue using [Redis](https://redis.io/) and [Bull](http
 For the templates of the email, we use the [handlebars](https://handlebarsjs.com/)
 
 For a more simple example see this repo: [nestjs-queue-email-example](https://github.com/mourabraz/nestjs-queue-email-example)
+
+### to start the queue
+
+```
+npm run queue
+```
+
+ou
+
+```
+yarn queue
+```
+
+# Instalação e Inicialização
+
+```
+git clone https://github.com/mourabraz/projectmanager-backend.git
+```
+
+e
+
+```
+cd /projectmanager-backend
+npm install
+```
+
+ou
+
+```
+cd /projectmanager-backend
+yarn
+```
+
+e
+
+```
+npm run start:dev
+```
+
+ou
+
+```
+yarn start:dev
+```
+
+## Seeds
+
+```
+npm run seed
+```
+
+ou
+
+```
+yarn seed
+```
 
 ## License
 
