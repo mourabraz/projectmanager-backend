@@ -64,17 +64,6 @@ function runComandToRevertDatabase() {
       exec(
         `cd .. && yarn typeorm:gm query "
 ${`
-SET statement_timeout = 0;
-SET lock_timeout = 0;
-SET idle_in_transaction_session_timeout = 0;
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
-SELECT pg_catalog.set_config('search_path', '', false);
-SET check_function_bodies = false;
-SET xmloption = content;
-SET client_min_messages = warning;
-SET row_security = off;
-
 INSERT INTO public.users VALUES('8194d8dc-3d72-4cd0-b0d0-63ddd10b6181', NULL, 'carlos@teste.com', '$2a$10$0lxH2TXq7rl/SZUpYdYfhemp.ynw.q9k9Lt22wsOZeqxQgIIzS9ri', '2020-09-18 13:26:59.342+00', '2020-09-18 13:26:59.341737+00', '2020-09-18 13:26:59.342+00');
 INSERT INTO public.users VALUES('59fb286e-4ecd-4f9b-9f1f-ba95890b3e26', NULL, 'rico@teste.com', '$2a$10$isfcpiCagdf5gWOmnmjX6uIUEoXJO.XPJtgeuAJKgsUbL6PKVAwH.', '2020-09-18 13:27:28.681+00', '2020-09-18 13:27:28.680919+00', '2020-09-18 13:27:28.681+00');
 
@@ -88,14 +77,12 @@ INSERT INTO public.tasks VALUES('d3933ab8-c280-4b86-8973-45a9b9634a58', 'Estabel
 INSERT INTO public.tasks VALUES('1a9d67f3-4ffa-4685-a899-2ede757b8d9c', 'Desenvolver o Backend', 1, '<p>Usar o framework <s>Nextjs oops</s> NestJS.</p><p></p><p><strong>Boa Sorte;</strong></p>', '2020-09-18 13:33:13.966+00', '2020-09-30 23:00:00+00', NULL, 'IN_PROGRESS', '4a1b312a-50b3-48f9-9ef0-6d5c2b8b78ae', '8194d8dc-3d72-4cd0-b0d0-63ddd10b6181', '2020-09-18 13:32:09.63154+00', '2020-09-18 13:33:20.616795+00');
 
 INSERT INTO public.steps VALUES('1cd224bf-42f5-48e6-9706-2601249c650c', 'Arrumar a TV', '', 1, '2020-09-18 13:29:33.093+00', '2020-09-18 13:29:41.605+00', '3b61911d-8add-4d0c-a661-15dc69fe0ef0', '59fb286e-4ecd-4f9b-9f1f-ba95890b3e26', '2020-09-18 13:29:33.093477+00', '2020-09-18 13:29:41.611214+00');
-INSERT INTO public.steps VALUES('e09086c4-2a50-4b1d-994b-ad69060d5d9a', 'COmprar o DVD do Cahves', '', 3, '2020-09-18 13:29:51.762+00', NULL, '3b61911d-8add-4d0c-a661-15dc69fe0ef0', '59fb286e-4ecd-4f9b-9f1f-ba95890b3e26', '2020-09-18 13:29:51.761501+00', '2020-09-18 13:29:51.761501+00');
+INSERT INTO public.steps VALUES('e09086c4-2a50-4b1d-994b-ad69060d5d9a', 'Comprar o DVD do Cahves', '', 3, '2020-09-18 13:29:51.762+00', NULL, '3b61911d-8add-4d0c-a661-15dc69fe0ef0', '59fb286e-4ecd-4f9b-9f1f-ba95890b3e26', '2020-09-18 13:29:51.761501+00', '2020-09-18 13:29:51.761501+00');
 INSERT INTO public.steps VALUES('6bbd376b-9296-4c4b-bd69-42eb44477ba7', 'Arrumar o DVD', '', 2, '2020-09-18 13:29:39.403+00', '2020-09-18 13:29:54.177+00', '3b61911d-8add-4d0c-a661-15dc69fe0ef0', '59fb286e-4ecd-4f9b-9f1f-ba95890b3e26', '2020-09-18 13:29:39.402648+00', '2020-09-18 13:29:54.177711+00');
 
 INSERT INTO public.fiiles VALUES('406202e6-0e19-472b-9b37-1dafa879d48f', 'chaves.jpeg', 'IMAGE', 'e4cf6e31e6c350b5bc599dab3ed5f2c9.jpeg', 12023, '59fb286e-4ecd-4f9b-9f1f-ba95890b3e26', NULL, '3b61911d-8add-4d0c-a661-15dc69fe0ef0', NULL, '2020-09-18 13:29:21.265938+00', '2020-09-18 13:29:21.265938+00');
 
 INSERT INTO public.invitations VALUES('e093a1e2-f42d-44ea-8627-42133a52c989', 'rico@teste.com', '4a1b312a-50b3-48f9-9ef0-6d5c2b8b78ae', '8194d8dc-3d72-4cd0-b0d0-63ddd10b6181', '2020-09-18 13:33:59.901+00', '2020-09-18 13:33:34.710903+00', '2020-09-18 13:33:59.904775+00');
-
-INSERT INTO public.migrations VALUES(1, 1592497490529, 'FirstMigration1592497490529');
 
 INSERT INTO public.photos VALUES('1daca0c7-ee14-4164-a4a3-cb16dd342572', 'carlos-256x300.png', '66cdbf87703e0219b915b19eae43c42e.png', '8194d8dc-3d72-4cd0-b0d0-63ddd10b6181', '2020-09-18 13:34:57.868044+00', '2020-09-18 13:34:57.868044+00');
 
