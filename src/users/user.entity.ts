@@ -41,10 +41,10 @@ export class User {
   })
   passwordUpdatedAt: Date;
 
-  @CreateDateColumn({ name: 'created_at', type: 'timestamptz' })
+  @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
   createdAt: Date;
 
-  @UpdateDateColumn({ name: 'updated_at', type: 'timestamptz', precision: 3 })
+  @UpdateDateColumn({ name: 'updated_at', type: 'timestamp', precision: 3 })
   updatedAt: Date;
 
   @OneToOne((type) => Photo, (photo) => photo.user)

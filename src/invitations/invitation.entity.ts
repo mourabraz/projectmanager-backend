@@ -26,13 +26,13 @@ export class Invitation {
   @Column({ name: 'user_id' })
   userId: string;
 
-  @Column({ name: 'accepted_at', type: 'timestamptz', nullable: true })
+  @Column({ name: 'accepted_at', type: 'timestamp', nullable: true })
   acceptedAt: Date;
 
-  @CreateDateColumn({ name: 'created_at', type: 'timestamptz' })
+  @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
   createdAt: Date;
 
-  @UpdateDateColumn({ name: 'updated_at', type: 'timestamptz' })
+  @UpdateDateColumn({ name: 'updated_at', type: 'timestamp' })
   updatedAt: Date;
 
   @ManyToOne((type) => User, (user) => user.invitations, {
