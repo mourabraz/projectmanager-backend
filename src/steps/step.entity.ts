@@ -29,7 +29,7 @@ export class Step {
   order: number;
 
   @Column({
-    type: 'timestamptz',
+    type: 'timestamp',
     precision: 3,
     name: 'started_at',
     default: () => 'NOW()',
@@ -37,7 +37,7 @@ export class Step {
   startedAt: Date;
 
   @Column({
-    type: 'timestamptz',
+    type: 'timestamp',
     precision: 3,
     name: 'completed_at',
     nullable: true,
