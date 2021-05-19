@@ -14,7 +14,9 @@ import { Project } from '../projects/project.entity';
 @Entity('invitations')
 @Index(['emailTo', 'projectId'], { unique: true })
 export class Invitation {
-  @PrimaryGeneratedColumn('uuid')
+  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+  // @ts-ignore
+  @PrimaryGeneratedColumn('uuid', { length: 36 })
   id: string;
 
   @Column({ name: 'email_to' })
