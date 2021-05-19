@@ -16,7 +16,9 @@ import { User } from '../users/user.entity';
 
 @Entity('tasks')
 export class Task {
-  @PrimaryGeneratedColumn('uuid')
+  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+  // @ts-ignore
+  @PrimaryGeneratedColumn('uuid', { length: 36 })
   id: string;
 
   @Column()

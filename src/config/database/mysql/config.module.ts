@@ -41,4 +41,4 @@ import { MysqlConfigService } from './config.service';
   providers: [ConfigService, MysqlConfigService],
   exports: [ConfigService, MysqlConfigService],
 })
-export class PostgresConfigModule {}
+export class MysqlConfigModule {}

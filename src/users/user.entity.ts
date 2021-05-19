@@ -20,7 +20,9 @@ import { Photo } from './photo.entity';
 @Entity('users')
 @Unique(['email'])
 export class User {
-  @PrimaryGeneratedColumn('uuid')
+  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+  // @ts-ignore
+  @PrimaryGeneratedColumn('uuid', { length: 36 })
   id: string;
 
   @Column({ nullable: true })

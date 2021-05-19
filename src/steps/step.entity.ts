@@ -14,7 +14,9 @@ import { Fiile } from '../fiiles/fiile.entity';
 
 @Entity('steps')
 export class Step {
-  @PrimaryGeneratedColumn('uuid')
+  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+  // @ts-ignore
+  @PrimaryGeneratedColumn('uuid', { length: 36 })
   id: string;
 
   @Column()

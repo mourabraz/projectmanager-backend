@@ -14,7 +14,9 @@ import { User } from './user.entity';
 @Entity('photos')
 @Index(['filename', 'userId'], { unique: true })
 export class Photo {
-  @PrimaryGeneratedColumn('uuid')
+  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+  // @ts-ignore
+  @PrimaryGeneratedColumn('uuid', { length: 36 })
   id: string;
 
   @Column({ nullable: true })

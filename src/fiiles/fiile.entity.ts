@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-ignore */
 import {
   PrimaryGeneratedColumn,
   Column,
@@ -15,7 +16,8 @@ import { Project } from '../projects/project.entity';
 
 @Entity('fiiles')
 export class Fiile {
-  @PrimaryGeneratedColumn('uuid')
+  // @ts-ignore
+  @PrimaryGeneratedColumn('uuid', { length: 36 })
   id: string;
 
   @Column({ nullable: true, default: '' })

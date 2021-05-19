@@ -3,8 +3,6 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { AppConfigModule } from './config/app/config.module';
 import { AppConfigService } from './config/app/config.service';
-import { PostgresConfigModule } from './config/database/postgres/config.module';
-import { PostgresConfigService } from './config/database/postgres/config.service';
 
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
@@ -14,13 +12,15 @@ import { StepsModule } from './steps/steps.module';
 import { FiilesModule } from './fiiles/fiiles.module';
 import { UsersProjectsModule } from './users-projects/users-projects.module';
 import { InvitationsModule } from './invitations/invitations.module';
+import { MysqlConfigModule } from './config/database/mysql/config.module';
+import { MysqlConfigService } from './config/database/mysql/config.service';
 
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
-      imports: [PostgresConfigModule, AppConfigModule],
+      imports: [MysqlConfigModule, AppConfigModule],
       useFactory: async (
-        configPostgresService: PostgresConfigService,
+        configPostgresService: MysqlConfigService,
         configAppService: AppConfigService,
       ) =>
         configPostgresService[
@@ -28,7 +28,7 @@ import { InvitationsModule } from './invitations/invitations.module';
             ? 'typeOrmConfigDevelopment'
             : 'typeOrmConfig'
         ],
-      inject: [PostgresConfigService, AppConfigService],
+      inject: [MysqlConfigService, AppConfigService],
     }),
     AuthModule,
     UsersModule,

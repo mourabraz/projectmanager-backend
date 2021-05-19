@@ -15,7 +15,9 @@ import { User } from '../users/user.entity';
 @Entity('users_projects')
 @Index(['userId', 'projectId'], { unique: true })
 export class UserProject {
-  @PrimaryGeneratedColumn('uuid')
+  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+  // @ts-ignore
+  @PrimaryGeneratedColumn('uuid', { length: 36 })
   id: string;
 
   @Column({ name: 'user_id' })
