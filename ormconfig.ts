@@ -10,9 +10,9 @@ const data: any = dotenv.parse(fs.readFileSync(`.env`));
 
 // Check typeORM documentation for more information.
 const config: ConnectionOptions = {
-  type: 'postgres',
-  host: 'localhost',
-  port: 5432,
+  type: data.DB_TYPE,
+  host: data.DB_HOST,
+  port: data.DB_PORT,
   username:
     environment !== 'production'
       ? data.DB_USERNAME_DEVELOPMENT
